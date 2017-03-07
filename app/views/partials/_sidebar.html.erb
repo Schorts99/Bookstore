@@ -1,0 +1,18 @@
+<% if params[:controller] == 'about' %>
+  <div class="well">
+    <h3>Información</h3>
+    <ul>
+      <li>La libreria</li>
+      <li>Dirección</li>
+      <li>Estado</li>
+      <li>Teléfono</li>
+      <li>Correlo electrónico</li>
+    </ul>
+  </div>
+<% end %>
+
+<% if params[:controller] == 'books' && params[:action] == 'index' || params[:action] == 'show' %>
+  <div class="list-group">
+    <a href="#" class="list-group-item">Pentesting</a>
+  </div>
+<% end %>
