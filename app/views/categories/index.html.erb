@@ -1,2 +1,14 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<h2>Categorias</h2>
+<table class="table table-striped">
+  <tr>
+    <th>Nombre de la categoría</th>
+    <th>Acciones</th>
+  </tr>
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.name %></td>
+      <td><%= link_to 'Editar', edit_category_path(category.id) %> | <%= link_to 'Eliminar',
+      category_path(category), method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+    </tr>
+  <% end %>
+</table>

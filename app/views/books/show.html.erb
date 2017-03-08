@@ -1,27 +1,26 @@
 <div id="books-show">
-  <h2>Pentesting con FOCA</h2>
+  <h2><%= @book.title %></h2>
   <div class="books-show-left">
-    <%= image_tag('covers/pentesting_con_foca.jpg') %>
+    <%= image_tag(@book.coverpath) %>
   </div>
   <div class="books-show-right">
     <h3>Información:</h3>
     <ul>
-      <li><strong>Categoria: </strong>Pentesting</li>
-      <li><strong>Autor: </strong>Chema Alonso</li>
-      <li><strong>Editorial: </strong>0xWORD</li>
-      <li><strong>Año: </strong>2015</li>
-      <li><strong>ISBN: </strong>978-84-616-6319-4</li>
-      <li><strong>Formato: </strong>Digital</li>
-      <li><strong>Páginas: </strong>240</li>
+      <li><strong>Categoria: </strong><%= @book.category.name %></li>
+      <li><strong>Autor: </strong><%= @book.author.first_name %>
+      <%= @book.author.last_name %></li>
+      <li><strong>Editorial: </strong><%= @book.publisher.name %></li>
+      <li><strong>Año: </strong><%= @book.year %></li>
+      <li><strong>ISBN: </strong><%= @book.isbn %></li>
+      <li><strong>Formato: </strong><%= @book.format %></li>
+      <li><strong>Páginas: </strong><%= @book.pages %></li>
     </ul>
-    <%= link_to "Compralo por 22,00 €", 'http://0xword.com/es/libros/59-pentesting-con-foca.html',
-    class:'btn btn-success', target:'_blank' %>
+    <%= link_to "Compralo por " + @book.price, @book.buy, class:'btn btn-success', target:'_blank' %>
   </div>
   <div class="clearfix"></div>
   <h4>Extracto</h4>
-  <p>En este libro aprenderás a sacar partido de todas las funciones que tiene FOCA, así como
-    utilizarla junto con otras herramientas como Burp, Metasploit o los frameworks de Evil Grade.
-    También verás como utilizar la información obtenida con FOCA en diferentes esquemas de ataque a utilizar
-    en un pentesting. Conocerás cómo funciona la fase de análisis de metadatos, las herramientas de
-    descubrimiento de red, las técnicas de fingerprintig y la búsqueda de vulnerabilidades. Fear the FOCA!</p>
+  <p><%= @book.excerpt %></p>
+  <h3>Administrar</h3>
+  <%= link_to 'Editar', edit_book_path(@book.id) %> | <%= link_to 'Eliminar', book_path(@book),
+  method: :delete, data: { confirm: 'Estas seguro?' } %>
 </div>

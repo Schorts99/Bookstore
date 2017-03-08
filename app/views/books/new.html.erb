@@ -2,55 +2,65 @@
 
 <%= form_for @book do |f| %>
   <div class="form-group">
-    <%= f.label :title %><br/>
+    <%= f.label :title, "Titulo" %><br/>
     <%= f.text_field :title, class:'form-control' %><br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :isbn %><br/>
+    <%= f.label :isbn, "ISBN" %><br/>
     <%= f.text_field :isbn, class:'form-control' %><br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :category %><br/>
+    <%= f.label :category, "Categoria" %><br/>
     <%= f.select :category_id, Category.all.collect { |x| [x.name, x.id] },
         { :include_blank => 'Elige uno' }, class:'form-control' %><br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :author %><br/>
-    <%= f.select :author_id, Category.all.collect { |x| [x.name, x.id] },
+    <%= f.label :author, "Autor" %><br/>
+    <%= f.select :author_id, Author.all.collect { |x| [x.first_name + ' ' + x.last_name, x.id] },
         { :include_blank => 'Elige uno' }, class:'form-control' %><br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :publisher %><br/>
-    <%= f.select :publisher_id, Category.all.collect { |x| [x.name, x.id] },
+    <%= f.label :publisher, "Editorial" %><br/>
+    <%= f.select :publisher_id, Publisher.all.collect { |x| [x.name, x.id] },
         { :include_blank => 'Elige uno' }, class:'form-control' %><br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :format %><br/>
+    <%= f.label :format, "Formato" %><br/>
     <%= f.text_field :format, class:'form-control' %><br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :excerpt %><br/>
+    <%= f.label :year, "Año" %><br/>
+    <%= f.text_field :year, class:'form-control' %><br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :coverpath, "Enlace de portada" %><br/>
+    <%= f.text_field :coverpath, class:'form-control' %><br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :excerpt, "Extracto" %><br/>
     <%= f.text_area :excerpt, class:'form-control' %><br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :pages %><br/>
+    <%= f.label :pages, "Páginas" %><br/>
     <%= f.number_field :pages, class:'form-control' %><br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :price %><br/>
+    <%= f.label :price, "Precio" %><br/>
     <%= f.text_field :price, class:'form-control' %><br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :buy %><br/>
+    <%= f.label :buy, "Enlace de compra" %><br/>
     <%= f.text_field :buy, class:'form-control' %><br/>
   </div>
 

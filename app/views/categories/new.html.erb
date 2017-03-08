@@ -1,8 +1,15 @@
-<h2>Agregar una nueva categoria</h2>
+<h2>Agregar categoría</h2>
 
 <%= form_for @category do |f| %>
+  <% if @category.errors.any? %>
+    <% @category.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger">
+        <%= msg %>
+      </div>
+    <% end %>
+  <% end %>
   <div class="form-group">
-    <%= f.label :name %><br/>
+    <%= f.label :name, "Nombre" %><br/>
     <%= f.text_field :name, class:'form-control' %><br/>
   </div>
 
